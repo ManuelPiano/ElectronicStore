@@ -1,0 +1,13 @@
+
+r	java:S117!"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥¹¸ûÿÿÿÿ8¦Í í0
+7
+java:S1220""Move this file to a named package.8§Í í0
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(Ú ùûÿÿÿÿ8´Í í0
+T	java:S106"9Replace this use of System.out or System.err by a logger.(­‰Ÿ8µÍ í0
+U	java:S106"9Replace this use of System.out or System.err by a logger.(¿¡ù8µÍ í0
+U	java:S106"9Replace this use of System.out or System.err by a logger.(ñÿ’8µÍ í0
+U	java:S106"9Replace this use of System.out or System.err by a logger.(ñÏñ‚8¶Í í0
+C	java:S131""Add a default case to this switch.(­Ö¹§úÿÿÿÿ8¸Í í0
+T	java:S106("9Replace this use of System.out or System.err by a logger.(»ÓÌR8ºÍ í0
+R
+java:S1128"5Remove this unused import 'peopleManagment.Employee'.(éê¡§8Ôï® í0

@@ -1,0 +1,9 @@
+
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(øŒà‰8åóâì0
+ƒ
+java:S4165"aRemove this useless assignment; "idC" already holds the assigned value along all execution paths.(“áÇ²ûÿÿÿÿ8èŸí0
+
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(’¹¾
+8ÓŒŸí0
+Q
+java:S1656"/Remove or correct this useless self-assignment.(“áÇ²ûÿÿÿÿ8îŸí0

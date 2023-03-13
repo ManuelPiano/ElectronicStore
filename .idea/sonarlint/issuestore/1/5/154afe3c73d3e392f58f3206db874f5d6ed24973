@@ -1,0 +1,19 @@
+
+Œ
+java:S1192"jDefine a constant instead of duplicating this literal "========================================
+" 3 times.(‰È”¸øÿÿÿÿ8ë´Ûéì0
+ß
+java:S1598"¼This file "Invoice.java" should be located in "Order" directory, not in "C:\Users\Manuel PC\Downloads\visio\officedeploymenttool_16026-20170\eStore\eStore2\src\main\java\InvoiceManagment".(œ‚”¡üÿÿÿÿ8Ÿ„Ûéì0
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(œ‚”¡üÿÿÿÿ8Ÿ„Ûéì0
+„
+java:S4165"hRemove this useless assignment; "amountPaid" already holds the assigned value along all execution paths.(Áî¥8¨„Ûéì0
+†
+java:S4165"iRemove this useless assignment; "totalAmount" already holds the assigned value along all execution paths.(ûĞ¸—8¨„Ûéì0
+
+java:S4165"dRemove this useless assignment; "change" already holds the assigned value along all execution paths.(ºÉ½ğ8¨„Ûéì0
+K
+java:S1656"/Remove or correct this useless self-assignment.(Áî¥8­„Ûéì0
+L
+java:S1656"/Remove or correct this useless self-assignment.(ûĞ¸—8­„Ûéì0
+L
+java:S1656"/Remove or correct this useless self-assignment.(ºÉ½ğ8­„Ûéì0

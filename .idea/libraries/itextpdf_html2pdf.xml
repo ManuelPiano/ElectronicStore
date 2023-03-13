@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="itextpdf.html2pdf" type="repository">
+    <properties maven-id="com.itextpdf:html2pdf:4.0.5" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/itextpdf/html2pdf/4.0.5/html2pdf-4.0.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/itextpdf/forms/7.2.5/forms-7.2.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/itextpdf/kernel/7.2.5/kernel-7.2.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/itextpdf/io/7.2.5/io-7.2.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/itextpdf/commons/7.2.5/commons-7.2.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/bouncycastle/bcpkix-jdk15on/1.70/bcpkix-jdk15on-1.70.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/bouncycastle/bcutil-jdk15on/1.70/bcutil-jdk15on-1.70.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/itextpdf/layout/7.2.5/layout-7.2.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/itextpdf/svg/7.2.5/svg-7.2.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/itextpdf/styled-xml-parser/7.2.5/styled-xml-parser-7.2.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
