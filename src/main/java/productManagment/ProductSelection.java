@@ -1,8 +1,6 @@
 package productManagment;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class ProductSelection implements ProductSelector {
   private List<Product> productList = new ArrayList<>();
@@ -15,6 +13,7 @@ public class ProductSelection implements ProductSelector {
   public List<Product> selectProducts() {
     Scanner scanner = new Scanner(System.in);
     List<Product> selectedProducts = new ArrayList<>();
+    Map<Integer, Integer> productCounts = new HashMap<>();
     double total = 0.0;
     while (true) {
       System.out.println("Insert product ID from the list (enter 0 to exit):");
@@ -34,14 +33,25 @@ public class ProductSelection implements ProductSelector {
       } else {
         selectedProducts.add(selectedProduct);
         total += selectedProduct.getPrice();
+        int count = productCounts.getOrDefault(selectedProductId, 0);
+        productCounts.put(selectedProductId, count + 1);
         System.out.println(
             selectedProduct.getName() + " " + selectedProduct.getPrice() + " added to cart");
       }
     }
 
     System.out.println("Selected Products:");
-    ProductListPrinter productListPrinter = new ProductListPrinter();
-    productListPrinter.printProductList(selectedProducts);
+    for (Map.Entry<Integer, Integer> entry : productCounts.entrySet()) {
+      int productId = entry.getKey();
+      int count = entry.getValue();
+      Product product = productList.stream()
+              .filter(p -> p.getIdP() == productId)
+              .findFirst()
+              .orElse(null);
+      if (product != null) {
+        System.out.println(product.getName() + " x " + count);
+      }
+    }
 
     return selectedProducts;
   }

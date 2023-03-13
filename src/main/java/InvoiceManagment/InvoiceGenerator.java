@@ -7,7 +7,10 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import peopleManagment.Client;
 import productManagment.Product;
 
@@ -45,7 +48,17 @@ public class InvoiceGenerator {
       clientInfo.add(new Paragraph(client.getEmail(), normalFont));
       clientInfo.setSpacingBefore(20);
       document.add(clientInfo);
-      // Config table
+      // Group products by name
+      Map<Product, Integer> productQuantities = new HashMap<>();
+      for (Product product : selectedProducts) {
+        Integer quantity = productQuantities.get(product);
+        if (quantity == null) {
+          quantity = 0;
+        }
+        productQuantities.put(product, quantity + 1);
+      }
+
+      // Create table
       PdfPTable table = new PdfPTable(3);
       table.setWidthPercentage(100);
       table.setSpacingBefore(10);
@@ -63,16 +76,21 @@ public class InvoiceGenerator {
       cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
       table.addCell(cell);
 
-      for (Product product : selectedProducts) {
+      // Add products to table
+      for (Map.Entry<Product, Integer> entry : productQuantities.entrySet()) {
+        Product product = entry.getKey();
+        Integer quantity = entry.getValue();
+
         cell = new PdfPCell(new Phrase(product.getName()));
         table.addCell(cell);
 
         cell = new PdfPCell(new Phrase("$" + product.getPrice()));
         table.addCell(cell);
 
-        cell = new PdfPCell(new Phrase("1"));
+        cell = new PdfPCell(new Phrase(quantity.toString()));
         table.addCell(cell);
       }
+
       document.add(new Paragraph("Selected Products:"));
       document.add(table);
 

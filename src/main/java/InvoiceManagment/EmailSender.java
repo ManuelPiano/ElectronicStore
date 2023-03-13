@@ -43,7 +43,7 @@ public class EmailSender {
 
       multipart.addBodyPart(attachmentPart);
       message.setContent(multipart);
-      session.setDebug(true);
+
       Transport.send(message);
 
       System.out.println("Email sent successfully to " + client.getEmail());
