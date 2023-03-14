@@ -45,7 +45,7 @@ public class EmailSender {
 
 
       MimeBodyPart attachmentPart = new MimeBodyPart();
-      attachmentPart.attachFile(lastInvoice.getFile());
+      attachmentPart.attachFile(lastInvoice.file());
 
       multipart.addBodyPart(attachmentPart);
       message.setContent(multipart);

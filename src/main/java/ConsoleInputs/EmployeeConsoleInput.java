@@ -10,7 +10,7 @@ import peopleManagment.PersonFactoryImpl;
 public class EmployeeConsoleInput {
   public void EmployeeConsole() {
     PersonFactory personFactory = new PersonFactoryImpl();
-    List<Employee> employeeList = new ArrayList<Employee>();
+    List<Employee> employeeList = new ArrayList<>();
     employeeList.add(personFactory.createEmployee("John", "john@company.com", 1));
     employeeList.add(personFactory.createEmployee("Mary", "mary@company.com", 2));
     employeeList.add(personFactory.createEmployee("Bob", "bob@company.com", 3));

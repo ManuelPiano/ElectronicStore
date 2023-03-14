@@ -14,18 +14,16 @@ public class purchaseProcess implements PaymentProcessor {
     System.out.println("Enter payment method (1. credit card, 2. cash):");
     int option = scanner.nextInt();
     switch (option) {
-      case 1:
+      case 1 -> {
         creditCard creditCard = new creditCard();
         creditCard.pay();
         System.out.println("Total Price: " + totalPrice);
-        break;
-      case 2:
+      }
+      case 2 -> {
         cash Cash = new cash(totalPrice);
         Cash.pay();
-        break;
-      default:
-        System.out.println("Option invalid");
-        break;
+      }
+      default -> System.out.println("Option invalid");
     }
 
     System.out.println("Payment processed successfully!");

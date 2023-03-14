@@ -5,7 +5,7 @@ import java.util.List;
 import lombok.Getter;
 
 public class AddProductsToList implements IProduct {
-  @Getter private List<Product> productList = new ArrayList<>();
+  @Getter private final List<Product> productList = new ArrayList<>();
 
   @Override
   public void addProduct() {

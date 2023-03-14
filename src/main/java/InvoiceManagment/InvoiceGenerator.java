@@ -17,13 +17,13 @@ public class InvoiceGenerator {
 
   private Invoice lastInvoice;
 
-  private static Font titleFont =
+  private static final Font titleFont =
       FontFactory.getFont(FontFactory.HELVETICA_BOLD, 20, BaseColor.BLACK);
-  private static Font subtitleFont =
+  private static final Font subtitleFont =
       FontFactory.getFont(FontFactory.HELVETICA, 14, BaseColor.BLACK);
-  private static Font headerFont =
+  private static final Font headerFont =
       FontFactory.getFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.WHITE);
-  private static Font normalFont = FontFactory.getFont(FontFactory.HELVETICA, 12, BaseColor.BLACK);
+  private static final Font normalFont = FontFactory.getFont(FontFactory.HELVETICA, 12, BaseColor.BLACK);
   public Invoice generateInvoice(List<Product> selectedProducts, Client client, double totalPrice) {
     // Create a new document
     Date currentDate = new Date();
@@ -37,12 +37,12 @@ public class InvoiceGenerator {
       PdfWriter.getInstance(document, new FileOutputStream(filePath));
       // Open the document
       document.open();
-      // Títle
+
       Paragraph title = new Paragraph("Electronic Store - Invoice", titleFont);
       title.setAlignment(Element.ALIGN_CENTER);
       document.add(title);
       // Subtitle
-      Paragraph subtitle = new Paragraph("Date: " + new Date().toString(), subtitleFont);
+      Paragraph subtitle = new Paragraph("Date: " + new Date(), subtitleFont);
       subtitle.setAlignment(Element.ALIGN_CENTER);
       document.add(subtitle);
       // Add client information

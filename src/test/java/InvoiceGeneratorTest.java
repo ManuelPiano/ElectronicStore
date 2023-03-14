@@ -28,6 +28,6 @@ public class InvoiceGeneratorTest {
 
         // Check that the invoice was generated successfully
         assertNotNull(invoice);
-        assertEquals("invoice.pdf", invoice.getFile());
+        assertEquals("invoice.pdf", invoice.file());
     }
 }

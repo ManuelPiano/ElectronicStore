@@ -1,7 +1,6 @@
 import ConsoleInputs.ClientConsoleInput;
 import ConsoleInputs.EmployeeConsoleInput;
 import InvoiceManagment.EmailSender;
-import InvoiceManagment.Invoice;
 import InvoiceManagment.InvoiceGenerator;
 import Order.purchaseProcess;
 import peopleManagment.Client;
@@ -14,9 +13,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Controller {
-    private EmployeeConsoleInput employeeConsoleInput;
-    private Scanner scanner;
-    private AddProductsToList products;
+    private final EmployeeConsoleInput employeeConsoleInput;
+    private final Scanner scanner;
+    private final AddProductsToList products;
 
     public Controller() {
         employeeConsoleInput = new EmployeeConsoleInput();
@@ -34,15 +33,9 @@ public class Controller {
             if (scanner.hasNextInt()) {
                 option = scanner.nextInt();
                 switch (option) {
-                    case 1:
-                        attendClient();
-                        break;
-                    case 2:
-                        logout();
-                        break;
-                    default:
-                        System.out.println("Invalid Option");
-                        break;
+                    case 1 -> attendClient();
+                    case 2 -> logout();
+                    default -> System.out.println("Invalid Option");
                 }
             } else {
                 System.out.println("Invalid Option");
@@ -69,10 +62,10 @@ public class Controller {
         System.out.println("Email: " + newClient.getEmail());
         System.out.println("Client ID: " + newClient.getIdC());
         InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
-        Invoice invoice =
-                invoiceGenerator.generateInvoice(selectedProducts, newClient, totalPrice);
         EmailSender emailSender = new EmailSender();
         emailSender.sendEmail(newClient, invoiceGenerator);
+        scanner.close();
+
     }
 
     private void logout() {
