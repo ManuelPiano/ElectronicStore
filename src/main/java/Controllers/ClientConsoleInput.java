@@ -1,9 +1,10 @@
-package ConsoleInputs;
+package Controllers;
 
 import java.util.Scanner;
 import peopleManagment.Client;
 
 public class ClientConsoleInput {
+  private ClientConsoleInput(){}
   public static Client promptClientData() {
     Scanner scanner = new Scanner(System.in);
 

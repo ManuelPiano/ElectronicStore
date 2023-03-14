@@ -1,4 +1,4 @@
-package ConsoleInputs;
+package Controllers;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,7 @@
-import ConsoleInputs.ClientConsoleInput;
-import ConsoleInputs.EmployeeConsoleInput;
+package Controllers;
+
 import InvoiceManagment.EmailSender;
+import InvoiceManagment.Invoice;
 import InvoiceManagment.InvoiceGenerator;
 import Order.purchaseProcess;
 import peopleManagment.Client;
@@ -62,6 +63,8 @@ public class Controller {
         System.out.println("Email: " + newClient.getEmail());
         System.out.println("Client ID: " + newClient.getIdC());
         InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
+        Invoice invoice =
+                invoiceGenerator.generateInvoice(selectedProducts, newClient, totalPrice);
         EmailSender emailSender = new EmailSender();
         emailSender.sendEmail(newClient, invoiceGenerator);
         scanner.close();
