@@ -6,15 +6,16 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import peopleManagment.Client;
 import productManagment.Product;
-
 public class InvoiceGenerator {
+
+  private Invoice lastInvoice;
 
   private static Font titleFont =
       FontFactory.getFont(FontFactory.HELVETICA_BOLD, 20, BaseColor.BLACK);
@@ -23,13 +24,17 @@ public class InvoiceGenerator {
   private static Font headerFont =
       FontFactory.getFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.WHITE);
   private static Font normalFont = FontFactory.getFont(FontFactory.HELVETICA, 12, BaseColor.BLACK);
-
   public Invoice generateInvoice(List<Product> selectedProducts, Client client, double totalPrice) {
     // Create a new document
+    Date currentDate = new Date();
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss");
+    String dateAndTime = dateFormat.format(currentDate);
+    String filename = "invoice_" + dateAndTime + ".pdf";
+    String filePath = "invoices/" + filename;
     Document document = new Document();
     try {
       // Create a PdfWriter instance to write the document to a file
-      PdfWriter.getInstance(document, new FileOutputStream("invoice.pdf"));
+      PdfWriter.getInstance(document, new FileOutputStream(filePath));
       // Open the document
       document.open();
       // Títle
@@ -42,7 +47,7 @@ public class InvoiceGenerator {
       document.add(subtitle);
       // Add client information
       Paragraph clientInfo = new Paragraph();
-      clientInfo.add(new Paragraph("Client:", headerFont));
+      clientInfo.add(new Paragraph("Client: Mr.", headerFont));
       clientInfo.add(new Paragraph(client.getName(), normalFont));
       clientInfo.add(new Paragraph("Email:", headerFont));
       clientInfo.add(new Paragraph(client.getEmail(), normalFont));
@@ -59,7 +64,7 @@ public class InvoiceGenerator {
       }
 
       // Create table
-      PdfPTable table = new PdfPTable(3);
+      PdfPTable table = new PdfPTable(4);
       table.setWidthPercentage(100);
       table.setSpacingBefore(10);
       table.setSpacingAfter(10);
@@ -68,11 +73,15 @@ public class InvoiceGenerator {
       cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
       table.addCell(cell);
 
-      cell = new PdfPCell(new Phrase("Price"));
+      cell = new PdfPCell(new Phrase("Unit Price"));
       cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
       table.addCell(cell);
 
       cell = new PdfPCell(new Phrase("Quantity"));
+      cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
+      table.addCell(cell);
+
+      cell = new PdfPCell(new Phrase("Subtotal"));
       cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
       table.addCell(cell);
 
@@ -89,6 +98,11 @@ public class InvoiceGenerator {
 
         cell = new PdfPCell(new Phrase(quantity.toString()));
         table.addCell(cell);
+
+        double subtotal = quantity * product.getPrice();
+        cell = new PdfPCell(new Phrase("$" + subtotal));
+        cell.setBackgroundColor(new BaseColor(255,215,0));
+        table.addCell(cell);
       }
 
       document.add(new Paragraph("Selected Products:"));
@@ -99,11 +113,15 @@ public class InvoiceGenerator {
       document.add(totalPriceInfo);
 
       document.close();
-
-      return new Invoice("invoice.pdf");
-    } catch (DocumentException | FileNotFoundException e) {
+      lastInvoice= new Invoice(filePath);
+      return lastInvoice;
+    }
+    catch (DocumentException | FileNotFoundException e) {
       e.printStackTrace();
       return null;
     }
+  }
+  public Invoice getLastinvoice(){
+    return lastInvoice;
   }
 }

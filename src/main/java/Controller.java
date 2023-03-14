@@ -8,7 +8,7 @@ import peopleManagment.Client;
 import productManagment.Product;
 import productManagment.ProductListPrinter;
 import productManagment.ProductSelection;
-import productManagment.productList;
+import productManagment.AddProductsToList;
 
 import java.util.List;
 import java.util.Scanner;
@@ -16,12 +16,12 @@ import java.util.Scanner;
 public class Controller {
     private EmployeeConsoleInput employeeConsoleInput;
     private Scanner scanner;
-    private productList products;
+    private AddProductsToList products;
 
     public Controller() {
         employeeConsoleInput = new EmployeeConsoleInput();
         scanner = new Scanner(System.in);
-        products = new productList();
+        products = new AddProductsToList();
     }
 
     public void run() {
@@ -72,7 +72,7 @@ public class Controller {
         Invoice invoice =
                 invoiceGenerator.generateInvoice(selectedProducts, newClient, totalPrice);
         EmailSender emailSender = new EmailSender();
-        emailSender.sendEmail(newClient, invoice);
+        emailSender.sendEmail(newClient, invoiceGenerator);
     }
 
     private void logout() {

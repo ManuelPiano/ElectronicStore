@@ -14,7 +14,12 @@ public class EmailSender {
   private static final String USERNAME = "manuelalvarado3113@gmail.com";
   private static final String PASSWORD = "vescyoxsciolrhtc";
 
-  public void sendEmail(Client client, Invoice invoice) {
+  public void sendEmail(Client client, InvoiceGenerator invoiceGenerator) {
+    Invoice lastInvoice = invoiceGenerator.getLastinvoice();
+    if (lastInvoice == null){
+      System.out.println("Invoices Empty");
+      return;
+    }
     try {
       Properties props = new Properties();
       props.put("mail.smtp.host", SMTP_SERVER);
@@ -38,8 +43,9 @@ public class EmailSender {
 
       Multipart multipart = new MimeMultipart();
 
+
       MimeBodyPart attachmentPart = new MimeBodyPart();
-      attachmentPart.attachFile(invoice.getFile());
+      attachmentPart.attachFile(lastInvoice.getFile());
 
       multipart.addBodyPart(attachmentPart);
       message.setContent(multipart);

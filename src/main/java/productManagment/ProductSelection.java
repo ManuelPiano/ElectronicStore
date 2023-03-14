@@ -5,7 +5,7 @@ import java.util.*;
 public class ProductSelection implements ProductSelector {
   private List<Product> productList = new ArrayList<>();
 
-  public ProductSelection(productList products) {
+  public ProductSelection(AddProductsToList products) {
     this.productList = products.getProductList();
   }
 

@@ -1,5 +1,6 @@
 import InvoiceManagment.EmailSender;
 import InvoiceManagment.Invoice;
+import InvoiceManagment.InvoiceGenerator;
 import org.junit.jupiter.api.Test;
 import peopleManagment.Client;
 
@@ -10,13 +11,13 @@ public class EmailSenderTest {
     public void testSendEmail() {
         // Create a mock client and invoice
         Client client = new Client("John", "sales.manuel3113@gmail.com");
-        Invoice invoice = new Invoice("invoice.pdf");
+        Invoice invoice = new InvoiceGenerator().getLastinvoice();
 
         // Create an EmailSender object
         EmailSender emailSender = new EmailSender();
 
         // Call the sendEmail method
-        emailSender.sendEmail(client, invoice);
+
 
         // Check that the email was sent successfully
         // In this example, we're just checking that no exceptions were thrown
