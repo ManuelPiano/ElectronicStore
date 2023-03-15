@@ -2,7 +2,7 @@ package Order;
 
 import java.util.Scanner;
 
-public class purchaseProcess implements PaymentProcessor {
+public class PurchaseProcess implements PaymentProcessor {
 
   @Override
   public void processPayment(double totalPrice) {

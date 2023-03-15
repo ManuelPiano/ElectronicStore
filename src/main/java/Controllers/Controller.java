@@ -3,7 +3,7 @@ package Controllers;
 import InvoiceManagment.EmailSender;
 import InvoiceManagment.Invoice;
 import InvoiceManagment.InvoiceGenerator;
-import Order.purchaseProcess;
+import Order.PurchaseProcess;
 import peopleManagment.Client;
 import productManagment.Product;
 import productManagment.ProductListPrinter;
@@ -55,7 +55,7 @@ public class Controller {
         for (Product product : selectedProducts) {
             totalPrice += product.getPrice();
         }
-        purchaseProcess purchase = new purchaseProcess();
+        PurchaseProcess purchase = new PurchaseProcess();
         purchase.processPayment(totalPrice);
         Client newClient = ClientConsoleInput.promptClientData();
         System.out.println("New client created:");
